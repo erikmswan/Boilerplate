@@ -1,21 +1,11 @@
 {
-  "name": "boilerplate",
+  "name": "Boilerplate",
   "version": "1.0.0",
   "description": "My personal boilerplate.",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dependencies": {
+    "gulp": "^3.9.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/erikmswan/Boilerplate.git"
-  },
-  "author": "Erik Swan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/erikmswan/Boilerplate/issues"
-  },
-  "homepage": "https://github.com/erikmswan/Boilerplate#readme",
   "devDependencies": {
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cached": "^1.1.0",
@@ -26,11 +16,17 @@
     "gulp-imagemin": "^3.0.3",
     "gulp-jshint": "^2.0.1",
     "gulp-less": "^3.1.0",
+    "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "jshint": "^2.9.3",
     "jshint-stylish": "^2.2.1"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Erik Swan",
+  "license": "ISC"
 }

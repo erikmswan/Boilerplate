@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     error = require('gulp-util'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
-    less = require('gulp-less'),
+    sass = require('gulp-sass'),
     minifyCSS = require('gulp-cssnano'),
     minifyHTML = require('gulp-htmlmin'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -59,24 +59,24 @@ gulp.task('jshint', function() {
 /* STYLES --------------------*/
 
 // Less compiler
-gulp.task('less', function () {
-  gulp.src(paths.src.css + 'main.less')
+gulp.task('sass', function () {
+  gulp.src(paths.src.css + 'main.scss')
     .pipe(sourcemaps.init())
-    .pipe(less().on('error', error.log))
+    .pipe(sass().on('error', error.log))
     .pipe(sourcemaps.write())
     .pipe(autoprefix())
     // .pipe(minifyCss())
     .pipe(gulp.dest(paths.dist.css));
 });
 
-gulp.task('lessWatch', function() {
-  gulp.watch(paths.src.css + '**/*.less', ['less']);
+gulp.task('sassWatch', function() {
+  gulp.watch(paths.src.css + '**/*.scss', ['sass']);
 });
 
 
 /* MARKUP & ASSETS --------------------*/
 
-// minify html
+// // minify html
 // gulp.task('minifyHTML', function() {
 // 	gulp.src(paths.src.base + '*.html')
 // 		.pipe(changed(paths.dist.base))
@@ -97,7 +97,7 @@ gulp.task('imagemin', function() {
 
 // build out all paths that haven't yet been built
 gulp.task('build', function() {
-  gulp.src([paths.src.base + '*', paths.src.base + '**/*', '!' + paths.src.base + '**/*.less'])
+  gulp.src([paths.src.base + '*', paths.src.base + '**/*', '!' + paths.src.base + '**/*.sass'])
     .pipe(changed(paths.dist.base))
     .pipe(gulp.dest(paths.dist.base));
 });
@@ -105,21 +105,21 @@ gulp.task('build', function() {
 
 /* DEFAULT --------------------*/
 
-// gulp.task('default', ['build', 'less', 'imagemin', 'minifyHTML', 'scripts']);
-gulp.task('default', ['build', 'less', 'imagemin', 'jshint', 'scripts']);
+// gulp.task('default', ['build', 'sass', 'imagemin', 'minifyHTML', 'scripts']);
+gulp.task('default', ['build', 'sass', 'imagemin', 'jshint', 'scripts']);
 
 
 /* WATCH --------------------*/
 gulp.task('watch', function() {
 
   // build all
-  gulp.watch([paths.src.base + '*', paths.src.base + '**/*', '!' + paths.src.base + '**/*.less'], ['build'])
+  gulp.watch([paths.src.base + '*', paths.src.base + '**/*', '!' + paths.src.base + '**/*.sass'], ['build'])
 
   // watch for JS changes
   gulp.watch(paths.src.js + '**/*.js', ['jshint', 'scripts']);
 
   // watch for CSS changes
-  gulp.watch(paths.src.css + '*.less', ['less']);
+  gulp.watch(paths.src.css + '*.scss', ['sass']);
 
   // watch for HTML changes
   // gulp.watch(paths.src.base + '*.html', ['minifyHTML']);
