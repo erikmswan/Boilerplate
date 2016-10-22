@@ -3,17 +3,15 @@
 /* REQUIRES --------------------*/
 
 var gulp = require('gulp'),
-    autoprefix = require('gulp-autoprefixer'),
+    minifyHTML = require('gulp-htmlmin'),
+    imagemin = require('gulp-imagemin'),
     cache = require('gulp-cached'),
     changed = require('gulp-changed'),
-    concat = require('gulp-concat'),
     error = require('gulp-util'),
-    imagemin = require('gulp-imagemin'),
-    jshint = require('gulp-jshint'),
     sass = require('gulp-sass'),
-    minifyCSS = require('gulp-cssnano'),
-    minifyHTML = require('gulp-htmlmin'),
     sourcemaps = require('gulp-sourcemaps'),
+    minifyCSS = require('gulp-cssnano'),
+    jshint = require('gulp-jshint'),
     stripDebug = require('gulp-strip-debug'),
     uglify = require('gulp-uglify');
 
@@ -43,7 +41,7 @@ var src = './src/',
 // JS compiler
 gulp.task('scripts', function() {
   gulp.src(paths.src.js + '*.js')
-    // .pipe(uglify().on('error', error.log))
+    .pipe(uglify().on('error', error.log))
     .pipe(gulp.dest(paths.dist.js));
 });
 
@@ -58,19 +56,14 @@ gulp.task('jshint', function() {
 
 /* STYLES --------------------*/
 
-// Less compiler
+// Sass compiler
 gulp.task('sass', function () {
   gulp.src(paths.src.css + 'main.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', error.log))
     .pipe(sourcemaps.write())
-    .pipe(autoprefix())
     // .pipe(minifyCss())
     .pipe(gulp.dest(paths.dist.css));
-});
-
-gulp.task('sassWatch', function() {
-  gulp.watch(paths.src.css + '**/*.scss', ['sass']);
 });
 
 
@@ -97,7 +90,7 @@ gulp.task('imagemin', function() {
 
 // build out all paths that haven't yet been built
 gulp.task('build', function() {
-  gulp.src([paths.src.base + '*', paths.src.base + '**/*', '!' + paths.src.base + '**/*.sass'])
+  gulp.src([paths.src.base + '*', paths.src.base + '**/*', '!' + paths.src.base + '**/*.scss'])
     .pipe(changed(paths.dist.base))
     .pipe(gulp.dest(paths.dist.base));
 });
@@ -125,5 +118,5 @@ gulp.task('watch', function() {
   // gulp.watch(paths.src.base + '*.html', ['minifyHTML']);
 
   // watch for images
-  gulp.watch([paths.src.img + '*.{jpg|jpeg|png}'], ['imagemin']);
+  gulp.watch([paths.src.img + '*.{jpg|jpeg|png|gif}'], ['imagemin']);
 });
