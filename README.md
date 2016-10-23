@@ -1,7 +1,7 @@
 # Boilerplate
-My personal boilerplate HTML site with Gulp &amp; SASS.
+My personal boilerplate HTML site with Webpack, Babel transpiler, Gulp, &amp; SASS.
 
-```bash
+```shell
 git clone git@github.com:erikmswan/Boilerplate.git
 cd Boilerplate
 npm i
