@@ -1,0 +1,34 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-throw-literal": 2,
+    "strict": 2,
+    "semi": 2,
+    "quotes": [2, "single"],
+    "no-var": 2,
+    "eol-last": 2,
+    "no-new-require": 2,
+    "no-sync": 2,
+    "arrow-spacing": 2,
+    "constructor-super": 2,
+    "no-const-assign": 2,
+    "prefer-arrow-callback": 2,
+    "no-console": 1,
+    "no-dupe-keys": 2,
+    "no-dupe-args": 2,
+    "no-duplicate-case": 2,
+    "no-extra-parens": 2,
+    "use-isnan": 2,
+    "valid-typeof": 2,
+    "block-scoped-var": 2,
+    "eqeqeq": 2,
+    "no-caller": 2,
+    "no-eval": 2,
+    "no-unused-vars": 2,
+    "block-spacing": 2
+  }
+}

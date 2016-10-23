@@ -3,22 +3,31 @@
   "version": "1.0.0",
   "description": "My personal boilerplate.",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:erikmswan/Boilerplate.git"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.16.0",
+    "jquery": "^3.1.1"
+  },
   "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "eslint": "^3.8.1",
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.0",
     "gulp-changed": "^1.3.2",
     "gulp-cssnano": "^2.1.2",
     "gulp-htmlmin": "^2.0.0",
-    "gulp-imagemin": "^3.0.3",
-    "gulp-jshint": "^2.0.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-strip-debug": "^1.1.0",
-    "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
-    "jshint": "^2.9.3",
-    "jshint-stylish": "^2.2.1"
+    "webpack": "^1.13.2",
+    "webpack-stream": "^3.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
