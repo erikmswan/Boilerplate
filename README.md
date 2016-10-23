@@ -6,4 +6,5 @@ git clone git@github.com:erikmswan/Boilerplate.git
 cd Boilerplate
 npm i
 gulp
+gulp watch
 ```
